@@ -1,7 +1,7 @@
 package code.eutrustservicesapplication;
 
 /**
- * Eccezione che viene lanciata in caso di parametri non appartenenti ai dati dell' Api
+ * Eccezione che viene lanciata in caso i parametri passati alla funzione siano errati
  */
 public class IllegalParameters extends Throwable{
     /**
