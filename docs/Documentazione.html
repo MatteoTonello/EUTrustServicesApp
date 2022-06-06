@@ -1,0 +1,540 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trust-Service Doc</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="scribbler-global.css">
+  <link rel="stylesheet" href="scribbler-doc.css">
+  <link rel="author" href="humans.txt">
+  <link rel="stylesheet" href="pictures_style.css">
+</head>
+
+<body>
+  <div class="doc__bg"></div>
+  <nav class="header">
+    <h1 class="logo">EU Trust-Service <span class="logo__thin">Documentation</span></h1>
+    <ul class="menu" title="torna a repository">
+      <div class="menu__item toggle"><span></span></div>
+      <li class="menu__item"><a href="https://github.com/MatteoTonello/EUTrustServicesApp.git" 
+        class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+    </ul>
+  </nav>
+  <div class="wrapper">
+    <aside class="doc__nav">
+      <ul>
+        <li class="js-btn selected">Manuale</li>
+        <li class="js-btn">Domain Model</li>
+        <li class="js-btn">Design Model</li>
+        <li class="js-btn">Use Cases</li>
+        <li class="js-btn">Test</li>
+      </ul>
+    </aside>
+
+
+
+
+
+    <article class="doc__content">
+      <section class="js-section">
+        <h1 style="font-size: 33px;">Manuale</h1>
+        <h3 class="section__title">come installare e lanciare il software</h3>
+        <div class="code__block code__block--notabs">
+          <pre class="code code--block">
+              <code>
+                  {
+                    //IPOTETICA PARTE DI CODICE DA SCRIVERCI (es terminale)
+                  }
+              </code>
+            </pre>
+        </div>
+
+        <p>
+          <br>
+        </p>
+
+        <h3 class="section__title">Panoramica su come sono state realizzate le funzionalità richieste <br> e fuzioni
+          riutilizzate da librerie esistenti</h3>
+        <p>
+          Inizialmente abbiamo letto la documentazione dell’API presente al seguente
+          <a href="https://esignature.ec.europa.eu/efda/swagger-ui.html" target="_blank" style="color: blue">link</a>.
+          <br>
+          Abbiamo creato la classe Api per creare il collegamento all’API e raccogliere i dati all’interno di vettori di
+          strighe sui quali poi l’utente avrebbe effettuato la ricerca. Abbiamo poi creato la classe ResearchMethods per
+          effettuare le ricerche all’interno di tali vettori. <br>
+        </p>
+        <p>
+          <u><i>Come viene effettuata la ricerca</i> <br></u>
+          L’elemento all’interno del quale effettuare la ricerca è un vettore di oggetti,
+          da noi chiamati “nodi”, che contiene tutti i possibili servizi con le relative
+          caratteristiche (i relativi nazione, provider, tipo di servizio e stato).
+          La ricerca viene effettuata tramite 4 metodi (ognuno per ogni elemento legato al servizio), eseguiti
+          sequenzialmente.
+          Dopo ogni metodo il vettore di nodi contiene solo i servizi che effettivamente hanno le caratteristiche
+          richieste come parametro,
+          arrivando quindi ad una situazione finale in cui contiene solo i servizi effettivamente richiesti.
+        </p>
+        <p>Per fare ciò abbiamo importato le seguenti librerie:</p>
+
+
+        <table id="librerie">
+          <tr>
+            <th>Libreria Importata</th>
+            <th>Funzioni</th>
+          </tr>
+          <tr>
+            <td>L’utilizzo combinato di
+              BufferedReader e InputStreamReader</td>
+            <td>per la lettura dei dati testuali (inizialmente in formato Json),
+              questa viene effettuata riga per riga tramite il metodo readline().</td>
+
+          </tr>
+          <tr>
+            <td>java.net.HttpURLConnection</td>
+            <td>per creare una connessione con l’API tramite modulo http</td>
+          </tr>
+          <tr>
+            <td>java.net.URL</td>
+            <td>per creare un oggetto di tipo URL, usato per le chiamate all’API.</td>
+          </tr>
+          <tr>
+            <td>java.util.Vector</td>
+            <td>per creare l’oggetto Vector, utilizzato poi per contenere i vari tipi di
+              dato (sottoforma di stringa).</td>
+          </tr>
+          <tr>
+            <td>org.json</td>
+            <td>per lavorare con i file in formato Json, formato utilizzato dall’API
+              per inviare la risposta.</td>
+          </tr>
+        </table>
+
+        <p>
+          <u><i>Parte Grafica</i></u><br>
+          Successivamente abbiamo iniziato a definire la parte grafica, definita grazie
+          alla libreria esterna JavaFX, e al supporto di SceneBuilder, un software che
+          facilita la creazione di applicazioni GUI tramite un’ interfaccia, restituendo
+          un file in formato FXML da inserire all’interno del progetto.
+        </p>
+        <p>
+          Grazie ad esso abbiamo definito l’ossatura grafica, definendo poi
+          il comportamento dei vari componenti grafici attraverso le classi
+          e i metodi delle libreria JavaFX. Abbiamo definito due tipologie di
+          grafica diversa: una per le nazioni (che possono essere associate
+          facilmente all’imagine di una bandiera, rendendo la ricerca più facile
+          e intuitiva) e quello delle altre caratteristiche del servizio, quindi
+          provider/tipo di servizio e stato (solitamente elenchi più numerosi e
+          non associabili a immagini, quindi preferendo la tipologia di un semplice
+          elenco con checkbox).
+        </p>
+        <p>
+          Come ultima cosa, abbiamo sfruttato la funzione di JavaFX che permette di
+          ridefinire la grafica del software utilizzando degli script in linguaggio
+          CSS. Questo è servito per creare un’interfaccia che rendesse più gradevole
+          e fruibile l’utilizzo dell’applicazione all’utente finale.
+        </p>
+        <table id="Librerie2">
+          <tr>
+            <th>Libreria Importata</th>
+            <th>Funzioni</th>
+          </tr>
+          <tr>
+            <td><code>javafx</code></td>
+            <td>Per definire l’interfaccia grafica del programma</td>
+
+          </tr>
+        </table>
+
+      </section>
+
+
+
+      <p>
+        <br>
+        <br>
+      </p>
+
+
+
+
+      <section class="js-section">
+        <h1 class="section__title" style="font-size: 33px;">Domain Model</h1>
+        <!--IMMAGINE USE CASES-->
+        <img src="/pictures/DomainModel.png" alt="Design model" title="Design model" width="80%" height="80%">
+        <hr />
+      </section>
+
+
+
+
+      <p>
+        <br>
+        <br>
+      </p>
+
+
+
+
+
+
+
+
+      <section class="js-section">
+        <h1 class="section__title" style="font-size: 33px;">Design Model</h1>
+        <!-- Image Zoom HTML -->   
+        <img id="myImg" src="pictures/DesignModel.png" alt="Design Model" title="zoom picture" width="100%" height="100%">
+        <div id="myModal" class="modal">
+          <img class="modal-content" id="img01">
+        <div id="caption"></div>
+        </div>
+
+        <hr />
+      </section>
+
+
+
+      <p>
+        <br>
+        <br>
+      </p>
+
+
+
+      <section class="js-section">
+        <h1 class="section__title" style="font-size: 33px;">Use Cases</h1>
+
+        <!--IMMAGINE USE CASES-->
+        <img src="/pictures/UseCases.svg" alt="Use Cases" title="use cases" width="120%" height="120%">
+
+
+        <ul>
+          <li><a href="#UC1" style="color: red">Use Case 1: Fornire dati al programma</a></li>
+          <li><a href="#UC2" style="color: red">Use Case 2: Vedere i tipi di servizio</a></li>
+          <li><a href="#UC3" style="color: red">Use Case 3: Vedere i servizi</a></li>
+          <li><a href="#UC4" style="color: red">Use Case 4: Selezionare le nazioni</a></li>
+          <li><a href="#UC5" style="color: red">Use Case 5: Selezionare lista di tipi/provider/stati</a></li>
+          <li><a href="#UC6" style="color: red">Use Case 6: Ricercare con barra di ricerca</a></li>
+          <li><a href="#UC7" style="color: red">Use Case 7: Visualizzare i risultati</a></li>
+        </ul>
+        <p></p>
+
+        <!--TABELLA UC 1-->
+        <table>
+          <tr>
+            <th><b id="UC1">Use Case 1</b></th>
+          </tr>
+          <tr>
+            <td>Nome dello Use Case
+            <td>Fornire dati al programma</td>
+          </tr>
+          <tr>
+            <td>Attori</td>
+            <td>EU-Trust Service API</td>
+          </tr>
+          <tr>
+            <td>Descrizione</td>
+            <td>Vengono ricevuti i dati riguardo ai servizi disponibili, tra i quali il 
+              sistema effettua poi la ricerca (o li visualizza come lista)</td>
+          </tr>
+          <tr>
+            <td>Precondizioni</td>
+            <td>L’API deve essere attiva, il computer dell’utente deve 
+              essere connesso a internet</td>
+          </tr>
+          <tr>
+            <td>Scenario Principale</td>
+            <td> Con una richiesta tramite protocollo HTTP viene fatta una richiesta all’API, che 
+              fornisce l’elenco delle nazioni che offrono i servizi e l’elenco di tutti i 
+              possibili servizi offerti</td>
+          </tr>
+          <tr>
+            <td>Scenario Alternativo</td>
+            <td>Non avviene collegamento con API, quindi non si possono scaricare i dati necessari.
+               Viene stampato a schermo l’impossibilità a connettersi.</td>
+          </tr>
+          <tr>
+            <td>Post-Condizioni</td>
+            <td>Vengono ricevuti i dati necessari al programma per vedere la lista di 
+              nazioni/servizi oppure per effettuare una ricerca</td>
+          </tr>
+        </table>
+      </section>
+
+      <p><br></p>
+      <!--TABELLA UC2-->
+      <table>
+        <tr>
+          <th><b id="UC2">Use Case 2</b></th>
+        </tr>
+        <tr>
+          <td>Nome dello Use Case
+          <td>Vedere i tipi di servizio</td>
+        </tr>
+        <tr>
+          <td>Attori</td>
+          <td> User</td>
+        </tr>
+        <tr>
+          <td>Descrizione</td>
+          <td>Vengono mostrati tutti i tipi di servizio offerti dall’Unione Europea</td>
+        </tr>
+        <tr>
+          <td>Precondizioni</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Scenario Principale</td>
+          <td>L’utente vede a schermo l’elenco dei tipi di servizio 
+            offerti dall’Unione Europea</td>
+        </tr>
+        <tr>
+          <td>Scenario Alternativo</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Post-Condizioni</td>
+          <td>-</td>
+        </tr>
+      </table>
+
+
+      <p><br></p>
+      <!--TABELLA UC3-->
+      <table>
+        <tr>
+          <th><b id="UC3">Use Case 3</b></th>
+        </tr>
+        <tr>
+          <td>Nome dello Use Case
+          <td>Vedere le nazioni</td>
+        </tr>
+        <tr>
+          <td>Attori</td>
+          <td>User</td>
+        </tr>
+        <tr>
+          <td>Descrizione</td>
+          <td>Vengono mostrati tutti i servizi offerti dall’Unione Europea</td>
+        </tr>
+        <tr>
+          <td>Precondizioni</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Scenario Principale</td>
+          <td>L’utente vede a schermo l’elenco dei servizi offerti dall’Unione Europea</td>
+        </tr>
+        <tr>
+          <td>Scenario Alternativo</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Post-Condizioni</td>
+          <td>-</td>
+        </tr>
+      </table>
+
+      
+      <p><br></p>
+      <!--TABELLA UC4-->
+      <table>
+        <tr>
+          <th><b id="UC4">Use Case 4</b></th>
+        </tr>
+        <tr>
+          <td>Nome dello Use Case
+          <td>Selezionare le nazioni</td>
+        </tr>
+        <tr>
+          <td>Attori</td>
+          <td>User</td>
+        </tr>
+        <tr>
+          <td>Descrizione</td>
+          <td>L’utente si trova in una schermata con un elenco di nazioni</td>
+        </tr>
+        <tr>
+          <td>Precondizioni</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Scenario Principale</td>
+          <td>Il cliente seleziona, tramite click, 
+            le nazioni che forniscono i servizi ai quali è interessato</td>
+        </tr>
+        <tr>
+          <td>Scenario Alternativo</td>
+          <td><ul>
+              <li>Viene premuto il pulsante “avanti” senza aver effettuato nessuna selezione, 
+              viene stampato a schermo un messaggio che avverte del problema e non avanza la ricerca</li>
+              <li>Vine premuto il pulsante home, il programma torna al menù iniziale 
+                (senza eseguire ricerca)</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Post-Condizioni</td>
+          <td>Si ottengono i i servizi relativi agli elementi selezionati</td>
+        </tr>
+      </table>
+
+
+      <p><br></p>
+      <!--TABELLA UC5-->
+      <table>
+        <tr>
+          <th><b id="UC5">Use Case 5</b></th>
+        </tr>
+        <tr>
+          <td>Nome dello Use Case
+          <td>selezionare lista di tipi/provider/stati </td>
+        </tr>
+        <tr>
+          <td>Attori</td>
+          <td>User</td>
+        </tr>
+        <tr>
+          <td>Descrizione</td>
+          <td>L’utente si trova in una schermata con 
+              una lista di checkbox da selezionare, per avanzare con la ricerca</td>
+        </tr>
+        <tr>
+          <td>Precondizioni</td>
+          <td>Devono essere stati selezionati gli elementi precedenti</td>
+        </tr>
+        <tr>
+          <td>Scenario Principale</td>
+          <td> Il cliente seleziona, tramite click, prima provider, poi tipo di servizio, 
+              infine statodei servizi che forniscono i servizi ai quali è interessato</td>
+        </tr>
+        <tr>
+          <td>Scenario Alternativo</td>
+          <td><ul>
+            <li> Viene premuto il pulsante “avanti” senza aver effettuato nessuna selezione, viene 
+                stampato a schermo un messaggio che avverte del problema e non avanza la ricerca</li>
+                <li>Vine premuto il pulsante home, il programma torna al menù iniziale 
+                  (azzerando i risultati delle ricerche preedentemente eseguite)</li>
+          </ul></td>
+        </tr>
+        <tr>
+          <td>Post-Condizioni</td>
+          <td>Si ottengono i i servizi relativi agli elementi selezionati dopo ogni 
+              ricerca</td>
+        </tr>
+      </table>
+
+
+      <p><br></p>
+      <!--TABELLA UC6-->
+      <table>
+        <tr>
+          <th><b id="UC6">Use Case 6</b></th>
+        </tr>
+        <tr>
+          <td>Nome dello Use Case
+          <td>Ricercare con barra di ricerca</td>
+        </tr>
+        <tr>
+          <td>Attori</td>
+          <td>User</td>
+        </tr>
+        <tr>
+          <td>Descrizione</td>
+          <td>La ricerca degli elementi da selezionare viene effettuata cercando l’elemento che 
+            si vuole selezionare con il nome corrispondente su di una barra di ricerca</td>
+        </tr>
+        <tr>
+          <td>Precondizioni</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Scenario Principale</td>
+          <td>L’utente preme sulla barra di ricerca e scrive il nome dell’elemento che vuole selezionare, 
+            se questo esiste gli viene mostrato a schermo e può essere selezionato (la ricerca 
+            non è case-sensitive e funziona anche cercando solo una parte della parola)</td>
+        </tr>
+        <tr>
+          <td>Scenario Alternativo</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Post-Condizioni</td>
+          <td>aSi ottengono gli elementi ricercati, che poi possono essere selezionati</td>
+        </tr>
+      </table>
+
+
+      <p><br></p>
+      <!--TABELLA UC7-->
+      <table>
+        <tr>
+          <th><b id="UC7">Use Case 7</b></th>
+        </tr>
+        <tr>
+          <td>Nome dello Use Case
+          <td>Visualizzare i risultati</td>
+        </tr>
+        <tr>
+          <td>Attori</td>
+          <td>Visualizzare i risultati</td>
+        </tr>
+        <tr>
+          <td>Descrizione</td>
+          <td>Vengono mostrati i risultati delle ricerche</td>
+        </tr>
+        <tr>
+          <td>Precondizioni</td>
+          <td>Devono essere stati selezionati gli elementi precedenti </td>
+        </tr>
+        <tr>
+          <td>Scenario Principale</td>
+          <td>L’utente vede a schermo tutti i servizi (con relativi nazione, provider,
+             tipo di servizio e stato del servizio) che ha tutte le caratteristiche 
+             cercate nelle schermate precedenti</td>
+        </tr>
+        <tr>
+          <td>Scenario Alternativo</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Post-Condizioni</td>
+          <td>-</td>
+        </tr>
+      </table>
+      </section>
+
+
+
+      <p>
+        <br>
+        <br>
+      </p>
+
+
+
+      <section class="js-section">
+        <h2 class="section__title" style="font-size: 33px;">Test</h2>
+        <p> Robbe da scrivere</p>
+        <hr />
+      </section>
+    </article>
+  </div>
+
+
+
+
+
+
+
+
+  <footer class="footer">Gruppo Progetto: Tommaso Terrin, Matteo Tonello,
+    Daniele Francescato, Filippo Franceschini</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="scribbler.js"></script>
+</body>
+
+</html>
