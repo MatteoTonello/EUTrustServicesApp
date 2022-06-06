@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="485.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.eutrustservicesapplication.GraphicResult">
+   <children>
+      <HBox prefHeight="162.0" prefWidth="485.0">
+         <children>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="162.0">
+               <children>
+                  <ImageView fx:id="image_nation" fitHeight="86.0" fitWidth="131.0" layoutX="16.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="319.0">
+               <children>
+                  <VBox prefHeight="162.0" prefWidth="319.0">
+                     <children>
+                        <Label fx:id="service" prefHeight="53.0" prefWidth="319.0" text="SERVICE:" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="country" prefHeight="25.0" prefWidth="319.0" text="Country:">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="provider" prefHeight="45.0" prefWidth="319.0" text="Provider:" wrapText="true">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="type_of_service" prefHeight="27.0" prefWidth="319.0" text="Type of Service:">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="state" prefHeight="39.0" prefWidth="319.0" text="State:">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="226.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.eutrustservicesapplication.GraphicNation">
+   <children>
+      <VBox fx:id="box" alignment="CENTER" layoutX="-5.0" onMouseClicked="#selectNation" prefHeight="206.0" prefWidth="235.0">
+         <children>
+            <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="93.0" text="Label" textAlignment="CENTER">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Label fx:id="initial" alignment="CENTER" prefHeight="28.0" prefWidth="54.0" text="sigla" />
+            <ImageView fx:id="image" fitHeight="128.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true" styleClass="image">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </VBox>
+   </children>
+</AnchorPane>
