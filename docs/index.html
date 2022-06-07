@@ -227,8 +227,8 @@
           <img class="modal-content" id="img01">
         <div id="caption"></div>
         </div>
-        <p><br></p>
-        <h3 class="section__title">INTERACTIONS DIAGRAM(richiesta_lista_tipi_di_servizio)</h3>
+        <p><br><br><br></p>
+        <h3 class="section__title">INTERACTIONS DIAGRAM (richiesta_lista_tipi_di_servizio)</h3>
         <p>
           Questo diagramma descrive l’esecuzione di un’istanza dell’applicazione nella quale l’utente richiede 
           la lista dei tipi di servizio offerti dal sito. La classe <code>MainController</code> si occupa innanzitutto dell’avviamento
@@ -237,41 +237,43 @@
           attraverso l’apposito pulsante. A questo punto la classe <code>TypeofService</code> ha il compito di fornire l’oggetto grafico per rappresentare 
           ogni tipo di servizio mentre <code>MainController</code> si occuperà della visualizzazione completa della lista nei confronti dell’utente.
         </p>
-        <img src="pictures/InteractionsDiagram(richiesta_lista_tipi_servizio).svg">
+        <img src="pictures/InteractionsDiagram(richiesta_lista_tipi_servizio).svg" alt="Interaction Diagram(richiesta_lista_tipi_servizio)" title="Interaction Diagram(richiesta_lista_tipi_servizio)" height="100%" width="100%" 
+        style="display:block; margin-left:auto; margin-right:auto"> 
 
-        <h3 class="section__title">INTERACTIONS DIAGRAM(richiesta_lista_nazioni)</h3>
+        <p><br><br><br></p>
+        <h3 class="section__title">INTERACTIONS DIAGRAM (richiesta_lista_nazioni)</h3>
         <p>
           Questo diagramma descrive l’esecuzione di un’istanza dell’applicazione nella quale l’utente
-          richiede la lista dei paesi. La classe MainController si occupa innanzitutto dell’avviamento della 
-          classe Api che si occuperà di ottenere i dati, successivamente inizializza le classi ImageNations, 
-          Nations e TypeService. L’esecuzione prosegue poi con la richiesta da parte dell’utente di visualizzare 
-          la lista dei paesi effettuata attraverso l’apposito pulsante. A questo punto la classe Nations ha il compito 
-          di fornire l’oggetto grafico per rappresentare ogni paese mentre MainController si occuperà della visualizzazione 
+          richiede la lista dei paesi. La classe <code>MainController</code> si occupa innanzitutto dell’avviamento della 
+          classe Api che si occuperà di ottenere i dati, successivamente inizializza le classi <code>ImageNations</code>, 
+          <code>Nations</code> e <code>TypeService</code>. L’esecuzione prosegue poi con la richiesta da parte dell’utente di visualizzare 
+          la lista dei paesi effettuata attraverso l’apposito pulsante. A questo punto la classe <code>Nations</code> ha il compito 
+          di fornire l’oggetto grafico per rappresentare ogni paese mentre <code>MainController</code> si occuperà della visualizzazione 
           completa della lista nei confronti dell’utente.
         </p>
-        <img src="pictures/InteractionsDiagram(richiesta_lista_stati).svg">
+        <img src="pictures/InteractionsDiagram(richiesta_lista_stati).svg" alt="Interaction Diagram(richiesta_lista_stati)" title="Interaction Diagram(richiesta_lista_stati)" height="100%" width="100%" 
+        style="display:block; margin-left:auto; margin-right:auto">
 
-        <h3 class="section__title">INTERACTIONS DIAGRAM(ricerca)</h3>
+        <p><br><br><br></p>
+        <h3 class="section__title">INTERACTIONS DIAGRAM (ricerca)</h3>
         <p>
           Questo diagramma descrive l’esecuzione di un’istanza dell’applicazione nella quale l’utente esegue una ricerca
-          completa. La classe MainController si occupa innanzitutto dell’avviamento della classe Api che si occuperà di ottenere 
-          i dati, successivamente inizializza le classi ImageNations, Nations e TypeService. L’esecuzione prosegue poi con la richiesta 
-          da parte dell’utente di eseguire una ricerca, effettuata attraverso l’apposito pulsante. A questo punto la classe Nations ha 
-          il compito di fornire l’oggetto grafico per rappresentare ogni nazione a  MainController che si occuperà della visualizzazione 
+          completa. La classe <code>MainController</code> si occupa innanzitutto dell’avviamento della classe <code>Api</code> che si occuperà di ottenere 
+          i dati, successivamente inizializza le classi <code>ImageNations</code>, <code>Nations</code> e <code>TypeService</code>. L’esecuzione prosegue poi con la richiesta 
+          da parte dell’utente di eseguire una ricerca, effettuata attraverso l’apposito pulsante. A questo punto la classe <code>Nations</code> ha 
+          il compito di fornire l’oggetto grafico per rappresentare ogni nazione a  <code>MainController</code> che si occuperà della visualizzazione 
           completa della lista e della gestione delle selezioni da parte dell’utente. Una volta che egli avrà selezionato le opzioni desiderate 
-          e premuto il tasto ‘Avanti’, la classe MainController richiederà la lista dei servizi filtrata attraverso i parametri alla classe 
-          ResearchMethods. Una volta ottenuta tale lista MainController presenterà all’utente la lista dei providers disponibili nei paesi selezionati 
-          attendendo che egli li scelga e prema il tasto ‘Avanti’. A questo punto verrà effettuata un nuovo filtraggio da parte di ResearchMethods che 
+          e premuto il tasto <i>‘Avanti’</i>, la classe <code>MainController</code> richiederà la lista dei servizi filtrata attraverso i parametri alla classe 
+          <code>ResearchMethods</code>. Una volta ottenuta tale lista <code>MainController</code> presenterà all’utente la lista dei providers disponibili nei paesi selezionati 
+          attendendo che egli li scelga e prema il tasto <i>‘Avanti’</i>. A questo punto verrà effettuata un nuovo filtraggio da parte di ResearchMethods che 
           fornirà una nuova lista di servizi. L’utente in seguito dovrà scegliere, con le stesse modalità, prima i tipi e poi gli stati del servizio 
-          che gli interessano e ResearchMethods si occuperà degli ultimi due filtraggi. 
-          Ora si entra nella parte finale della procedura di ricerca, MainController inizializza la classe Results che gli fornirà la grafica per la rappresentazione
-          dei risultati finali all’utente il quale potrà scegliere di tornare, tramite il tasto ‘Home’, al menu iniziale per effettuare una nuova ricerca.
+          che gli interessano e <code>ResearchMethods</code> si occuperà degli ultimi due filtraggi. <br>
+          Ora si entra nella parte finale della procedura di ricerca, <code>MainController</code> inizializza la classe <code>Results</code> che gli fornirà la grafica per la rappresentazione
+          dei risultati finali all’utente il quale potrà scegliere di tornare, tramite il tasto <i>‘Home’</i>, al menu iniziale per effettuare una nuova ricerca.
         </p>
-        <img src="pictures/InteractionsDiagram(ricerca).svg">
-
-
-        <img src="pictures/InteractionsDiagram().svg" alt="Interaction Diagram" title="Interaction Diagram" height="60%" width="70%" 
+        <img src="pictures/InteractionsDiagram(ricerca).svg" alt="Interaction Diagram(ricerca)" title="Interaction Diagram(ricerca)" height="117%" width="122%" 
         style="display:block; margin-left:auto; margin-right:auto">
+
         <hr />
       </section>
 
