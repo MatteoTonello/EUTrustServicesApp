@@ -43,7 +43,7 @@
     <article class="doc__content">
       <section class="js-section">
         <h1 style="font-size: 33px;">Manuale</h1>
-        <h3 class="section__title">come installare e lanciare il software</h3>
+        <h3 class="section__title">Come installare e lanciare il software</h3>
         <p>
           Scaricare il programma in formato .jar dal seguente 
           <a href="https://github.com/MatteoTonello/EUTrustServicesApp/blob/main/out/artifacts/EUTrustServicesApplication_jar/EUTrustServicesApplication.jar" target="_blank" style="color: blue;">link</a>
@@ -54,7 +54,6 @@
           In caso di mancato funzionamento seguendo le indicazioni fornite sopra, si suggerisce di clonare la repository 
           fornita su GitHub ed eseguire su di un IDE (eg. IntelliJ).
         </i></p>
-        
 
         <p>
           <br>
@@ -107,6 +106,45 @@
           CSS. Questo è servito per creare un’interfaccia che rendesse più gradevole
           e fruibile l’utilizzo dell’applicazione all’utente finale.
         </p>
+        <p>
+          <u><i>Design Pattern</i></u><br>
+          Abbiamo modellato il codice utilizzando i seguenti Design Pattern<br>
+          <i>GoF Patter</i>i>
+          <ul>
+            <li><u>Singleton:</u>Abbiamo utilizzato questo design pattern per la classe Api.
+              Infatti una peculiarità della nostra applicazione è quella di eseguire una sola richiesta
+              alla libreria, una scelta che ci ha permesso di rendere più veloce e performante il
+              programma. Inoltre ad assicurare una maggiore sicurezza, dal momento che ne rende
+              possibile l’utilizzo anche nel caso in cui la connessione internet dell’utente venisse
+              a mancare nei momenti successivi all’unica creazione dell’istanza di API.
+            </li>
+            <li><u>State:</u>Abbiamo deciso di adottare questo design pattern nella creazione della
+              classe Graphic Nation, ovvero la classe che definisce la struttura grafica di ogni nazione.
+              Questa può assumere due stati: selezionata o deselezionata e, il controllo di questo stato,
+              è determinato semplicemente nella classe stessa, grazie all’uso di una variabile booleana.
+              In base a questo parametro cambia il comportamento dell'oggetto.<br>
+              Anche la classe MainController contiene una variabile che ne definisce lo stato.
+              In questo caso la variabile è un intero perchè l'oggetto si può trovare in 3 stati
+              diversi, riferiti alla ricerca(ricerca per nazione, per provider/tipo servizio/stato
+              servizio, risultato).
+            </li>
+        <i>Grasp Pattern</i>i>
+        <ul>
+          <li><u>Controller:</u>La classe MainController è un Controller, ossia un oggetto che è
+            responsabile della comunicazione tra interfacce e sistema, per mettere in relazione GUI
+            e l'applicazione. Infatti la suddetta classe è incaricata di recepire gli input forniti
+            dall'interfaccia grafica sviluppata sui file FXML ed elaborare i risultati delegando i
+            compiti secondari ad altre classi, per poi ricevere l'output da reintegrare nella schermata
+            visualizzata in base all'azione eseguita.
+          </li>
+          <li><u>Creator:</u>Abbiamo progettato le classi Nation, TypeOfService e Results secondo
+            le indicazioni del Grasp Pattern Creator. Nel programma le istanze di GraphicNation,
+            LabelType e GraphicResult vengono create unicamente attraverso le rispettive classi
+            Creator.
+          </li>
+          </ul>
+        </p>
+
         <p><br></p>
         <table id="Librerie">
             <tr>
