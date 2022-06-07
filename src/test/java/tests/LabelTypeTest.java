@@ -1,5 +1,6 @@
 package tests;
 
+import javafx.application.Platform;
 import org.junit.jupiter.api.*;
 import code.eutrustservicesapplication.*;
 
@@ -11,7 +12,7 @@ class LabelTypeTest {
     @BeforeAll
     static void init()
     {
-        //Platform.startup(() -> {}); //necessario se non è stato chiamato da precedenti test
+        Platform.startup(() -> {}); //necessario se non è stato chiamato da precedenti test consecutivi(in caso contrario commentarlo)
         try{
             api=Api.getInstance();
         }
