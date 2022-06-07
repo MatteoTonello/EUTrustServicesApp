@@ -12,7 +12,7 @@ class GraphicResultTest {
     @BeforeAll
     static void init()
     {
-        //Platform.startup(() -> {});
+        //Platform.startup(() -> {}); //necessario se non è stato chiamato da precedenti test
         try{
             api=Api.getInstance();
         }
