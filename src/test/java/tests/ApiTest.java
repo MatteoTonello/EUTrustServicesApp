@@ -9,11 +9,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ApiTest {
+    static Api api;
     @BeforeAll
     public static void init()
     {
         try{
-            Api.start();
+            api=Api.getInstance();
         }
         catch (Exception e)
         {
@@ -31,35 +32,35 @@ class ApiTest {
     public void initialize()
     {
         Node n=new Node("AT","A-Trust Gesellschaft für Sicherheitssysteme im elektronischen Datenverkehr","GmbH TrustSign-Sig-01 (key no. 1)","withdrawn","QCertESig");
-        assertEquals(n.toString(),Api.totalNodes().get(0).toString());
-        assertEquals(Api.name_countries().size(), Api.countries().size());
+        assertEquals(n.toString(),api.totalNodes().get(0).toString());
+        assertEquals(api.name_countries().size(), api.countries().size());
     }
     @Test
     public void initialLength()
     {
-        for(int i=0;i<Api.countries().size();i++){
-            assertEquals(2, Api.countries().get(i).length());
+        for(int i=0;i<api.countries().size();i++){
+            assertEquals(2, api.countries().get(i).length());
         }
     }
     @Test
     public void oneElementRight()
     {
-        assertTrue(Api.countries().contains("IT"));
-        assertTrue(Api.name_countries().contains("Italy"));
+        assertTrue(api.countries().contains("IT"));
+        assertTrue(api.name_countries().contains("Italy"));
     }
     @Test
     public void oneElementWrong()
     {
-        assertFalse(Api.countries().contains("USA"));
-        assertFalse(Api.name_countries().contains("United States"));
+        assertFalse(api.countries().contains("USA"));
+        assertFalse(api.name_countries().contains("United States"));
     }
     @Test
     public void notNull()
     {
-        assertNotNull(Api.countries());
-        assertNotNull(Api.type_of_services());
-        assertNotNull(Api.providers());
-        assertNotNull(Api.status());
-        assertNotNull(Api.totalNodes());
+        assertNotNull(api.countries());
+        assertNotNull(api.type_of_services());
+        assertNotNull(api.providers());
+        assertNotNull(api.status());
+        assertNotNull(api.totalNodes());
     }
 }

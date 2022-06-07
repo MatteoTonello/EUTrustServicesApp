@@ -21,6 +21,7 @@ public class MainController {
     @FXML private Pane menu;
     @FXML private VBox main_vbox;
     @FXML private HBox top_box;
+    private Api api;
     private int levelSearch=0; //indica il livello della ricerca
     private List<Node> temporaryResults; //contiene i risultati temporanei della ricerca dopo ogni passaggio
     private Vector<CheckBox> checkBoxVector; //contiene le checkbox che sono inserite nella listView
@@ -41,7 +42,7 @@ public class MainController {
     {
         try
         {
-            Api.start();
+            api=Api.getInstance();
         }catch (Exception e)
         {
             error_api.setVisible(true);
@@ -50,11 +51,11 @@ public class MainController {
             research.setVisible(false);
             return;
         }
-        ImagesNations.initialize(Api.countries());
-        TypeofService.initialize(Api.type_of_services());
-        temporaryResults = Api.totalNodes();
+        ImagesNations.initialize(api.countries());
+        TypeofService.initialize(api.type_of_services());
+        temporaryResults = api.totalNodes();
         checkBoxVector =new Vector<>();
-        Nations.initialize(Api.name_countries(),Api.countries());
+        Nations.initialize(api.name_countries(),api.countries());
     }
     //gestisce la grafica e la creazione degli oggetti grafici rappresentanti i risultati
     private void result() throws IOException,IllegalParameters
@@ -91,8 +92,8 @@ public class MainController {
         if(levelSearch==0) //schermata con nazioni
         {
             itemsContainer.getChildren().clear();
-            for (int i = 0; i< Api.countries().size(); i++) {
-                if(Api.countries().get(i).toUpperCase().startsWith(word.toUpperCase())|| Api.name_countries().get(i).toUpperCase().startsWith(word.toUpperCase()))
+            for (int i = 0; i< api.countries().size(); i++) {
+                if(api.countries().get(i).toUpperCase().startsWith(word.toUpperCase())|| api.name_countries().get(i).toUpperCase().startsWith(word.toUpperCase()))
                     itemsContainer.getChildren().add(Nations.nations.elementAt(i).pane());
             }
         }
@@ -123,7 +124,7 @@ public class MainController {
         sp1_to_sp2(false);
         error.setVisible(false);
         levelSearch=0;
-        temporaryResults = Api.totalNodes();
+        temporaryResults = api.totalNodes();
         itemsContainer.getChildren().clear();
         search.clear();
         GraphicNation.reset_total_selection();
@@ -139,8 +140,9 @@ public class MainController {
 
     /**
      * Selezione di tutti gli elementi con il relativo bottone
+     * @throws Exception Possibili eccezioni lanciate da GraphicNation.total_selection()
      */
-    public void selectAll()
+    public void selectAll() throws Exception
     {
         if (levelSearch == 0) { //Selezione delle nazioni
             GraphicNation.total_selection();
@@ -213,7 +215,7 @@ public class MainController {
                return;
            }
            //se i selezionati sono provider
-           if(Api.providers().contains(selected_elements.elementAt(0))){
+           if(api.providers().contains(selected_elements.elementAt(0))){
                temporaryResults= ResearchMethods.searchProvider(selected_elements, temporaryResults);
                for (Node temporaryResult : temporaryResults) {
                    if (!tmp_vector.contains(temporaryResult.type_of_service))
@@ -222,7 +224,7 @@ public class MainController {
                description.setText("TIPO SERVIZIO");
            }
            //se i selezionati sono tipi di servizi
-           if(Api.type_of_services().contains(selected_elements.elementAt(0))){
+           if(api.type_of_services().contains(selected_elements.elementAt(0))){
                temporaryResults= ResearchMethods.searchType(selected_elements, temporaryResults);
                for (Node temporaryResult : temporaryResults) {
                    if (!tmp_vector.contains(temporaryResult.state)) tmp_vector.add(temporaryResult.state);
@@ -230,7 +232,7 @@ public class MainController {
                description.setText("STATO SERVIZIO");
            }
            //se i selezionati sono gli stati dei servizi
-           if(Api.status().contains(selected_elements.elementAt(0))){
+           if(api.status().contains(selected_elements.elementAt(0))){
                temporaryResults= ResearchMethods.searchStatus(selected_elements, temporaryResults);
                levelSearch++;
                result();

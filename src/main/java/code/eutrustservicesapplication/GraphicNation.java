@@ -68,12 +68,13 @@ public class GraphicNation {
     /**
      * Metodo per selezionare tutte le nazioni, aggiungendole anche alla lista che verrà poi
      * usata per eseguire la ricerca
+     * @throws Exception Possibili eccezioni lanciate da Api.getInstance()
      */
-    public static void total_selection(){
+    public static void total_selection() throws Exception{
         for(int i=0;i<Nations.nations.size();i++){
             Nations.nations.elementAt(i).select();
         }
-        Nations.selected_nations.addAll(Api.countries());
+        Nations.selected_nations.addAll(Api.getInstance().countries());
     }
     /**
      * Metodo per deselezionare tutte le nazioni, rimuovendole anche dalla lista che verrà poi

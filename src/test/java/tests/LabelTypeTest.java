@@ -7,12 +7,13 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LabelTypeTest {
+    static Api api;
     @BeforeAll
     static void init()
     {
         //Platform.startup(() -> {});
         try{
-            Api.start();
+            api=Api.getInstance();
         }
         catch (Exception e)
         {
