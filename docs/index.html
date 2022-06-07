@@ -109,7 +109,7 @@
             <u><i>Design Pattern</i></u><br>
             Abbiamo modellato il codice utilizzando i seguenti Design Pattern<br>
             <p><i>GoF Pattern</i></p>
-            <p>  •<u>Singleton:</u> Abbiamo utilizzato questo design pattern per la classe <code>Api</code>.
+            <p>  •<u>Singleton:</u> Abbiamo utilizzato questo design pattern per la classe Api.
                 Infatti una peculiarità della nostra applicazione è quella di eseguire una sola richiesta
                 alla libreria, una scelta che ci ha permesso di rendere più veloce e performante il
                 programma. Inoltre ad assicurare una maggiore sicurezza, dal momento che ne rende
@@ -118,26 +118,26 @@
             </p>
             <p>
                 •<u>State:</u> Abbiamo deciso di adottare questo design pattern nella creazione della
-                classe <code>Graphic Nation</code>, ovvero la classe che definisce la struttura grafica di ogni nazione.
+                classe Graphic Nation, ovvero la classe che definisce la struttura grafica di ogni nazione.
                 Questa può assumere due stati: selezionata o deselezionata e, il controllo di questo stato,
                 è determinato semplicemente nella classe stessa, grazie all’uso di una variabile booleana.
                 In base a questo parametro cambia il comportamento dell'oggetto.<br>
-                Anche la classe <code>MainController</code> contiene una variabile che ne definisce lo stato.
+                Anche la classe MainController contiene una variabile che ne definisce lo stato.
                 In questo caso la variabile è un intero perchè l'oggetto si può trovare in 3 stati
                 diversi, riferiti alla ricerca(ricerca per nazione, per provider/tipo servizio/stato
                 servizio, risultato).
             </p>
           <p><i>Grasp Pattern</i></p>
             <p>
-            <u>•Controller:</u> La classe <code>MainController</code> è un Controller, ossia un oggetto che è
+            <u>•Controller:</u> La classe MainController è un Controller, ossia un oggetto che è
               responsabile della comunicazione tra interfacce e sistema, per mettere in relazione GUI
               e l'applicazione. Infatti la suddetta classe è incaricata di recepire gli input forniti
               dall'interfaccia grafica sviluppata sui file FXML ed elaborare i risultati delegando i
               compiti secondari ad altre classi, per poi ricevere l'output da reintegrare nella schermata
               visualizzata in base all'azione eseguita.</p>
-            <p><u>•Creator:</u> Abbiamo progettato le classi <code>Nation</code>, <code>TypeOfService</code> e <code>Results</code> secondo
-              le indicazioni del Grasp Pattern Creator. Nel programma le istanze di <code>GraphicNation</code>,
-              <code>LabelType</code> e <code>GraphicResult</code> vengono create unicamente attraverso le rispettive classi
+            <p><u>•Creator:</u>Abbiamo progettato le classi Nation, TypeOfService e Results secondo
+              le indicazioni del Grasp Pattern Creator. Nel programma le istanze di GraphicNation,
+              LabelType e GraphicResult vengono create unicamente attraverso le rispettive classi
               Creator.
             </p>
         </p>
