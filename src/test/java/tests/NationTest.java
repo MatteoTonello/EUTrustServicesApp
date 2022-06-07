@@ -15,7 +15,7 @@ class NationTest {
     @BeforeAll
     static void init()
     {
-        Platform.startup(() -> {}); //necessario se non è stato chiamato da precedenti test
+        Platform.startup(() -> {}); //necessario se non è stato chiamato da precedenti test consecutivi(in caso contrario commentarlo)
         try{
             api=Api.getInstance();
         }
