@@ -11,19 +11,20 @@ import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.*;
 
 class NationTest {
+    static Api api;
     @BeforeAll
     static void init()
     {
         Platform.startup(() -> {});
         try{
-            Api.start();
+            api=Api.getInstance();
         }
         catch (Exception e)
         {
             fail();
         }
         try{
-            ImagesNations.initialize(Api.countries());
+            ImagesNations.initialize(api.countries());
         }
         catch (IllegalParameters e)
         {
@@ -40,10 +41,10 @@ class NationTest {
     @Test
     public void initialize() throws IOException,IllegalParameters
     {
-        Nations.initialize(Api.name_countries(),Api.countries());
+        Nations.initialize(api.name_countries(),api.countries());
         assertEquals("AT Austria", Nations.nations.elementAt(0).toString());
         assertEquals(0, Nations.selected_nations.size());
-        assertEquals(Nations.nations.size(), Api.countries().size());
+        assertEquals(Nations.nations.size(), api.countries().size());
     }
     @Test
     public void initializeNull() throws IOException

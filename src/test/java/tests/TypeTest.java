@@ -9,12 +9,13 @@ import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TypeTest {
+    static Api api;
     @BeforeAll
     static void init()
     {
         //Platform.startup(() -> {});
         try{
-            Api.start();
+            api=Api.getInstance();
         }
         catch (Exception e)
         {
@@ -31,8 +32,8 @@ class TypeTest {
 
     @Test
     void initialize() throws IOException,IllegalParameters {
-        TypeofService.initialize(Api.type_of_services());
-        assertEquals(Api.type_of_services().size(), TypeofService.typeOfServicesPane().size());
+        TypeofService.initialize(api.type_of_services());
+        assertEquals(api.type_of_services().size(), TypeofService.typeOfServicesPane().size());
     }
     @Test
     public void initializeNull() throws IOException

@@ -11,19 +11,20 @@ import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GraphicNationTest {
+    static Api api;
     @BeforeAll
     static void init()
     {
         //Platform.startup(() -> {});
         try{
-            Api.start();
+            api=Api.getInstance();
         }
         catch (Exception e)
         {
             fail();
         }
         try{
-            ImagesNations.initialize(Api.countries());
+            ImagesNations.initialize(api.countries());
         }
         catch (IllegalParameters e)
         {
@@ -79,7 +80,7 @@ class GraphicNationTest {
     @Test
     void selection() throws IOException,IllegalParameters
     {
-        Nations.initialize(Api.name_countries(),Api.countries());
+        Nations.initialize(api.name_countries(),api.countries());
         GraphicNation graphicNation=new GraphicNation();
         try
         {
@@ -95,19 +96,19 @@ class GraphicNationTest {
         assertFalse(Nations.selected_nations.contains("AT"));
     }
     @Test
-    void deselectionAll() throws IOException,IllegalParameters
+    void deselectionAll() throws IllegalParameters,Exception
     {
-        Nations.initialize(Api.name_countries(),Api.countries());
+        Nations.initialize(api.name_countries(),api.countries());
         GraphicNation.total_selection();
         GraphicNation.reset_total_selection();
         assertEquals(0, Nations.selected_nations.size());
     }
     @Test
-    void selectionAll() throws IOException,IllegalParameters
+    void selectionAll() throws Exception,IllegalParameters
     {
-        Nations.initialize(Api.name_countries(),Api.countries());
+        Nations.initialize(api.name_countries(),api.countries());
         GraphicNation.total_selection();
-        assertEquals(Nations.selected_nations.size(), Api.countries().size());
+        assertEquals(Nations.selected_nations.size(), api.countries().size());
     }
     @Test
     void paneTest() throws IOException,IllegalParameters

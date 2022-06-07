@@ -8,19 +8,20 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GraphicResultTest {
+    static Api api;
     @BeforeAll
     static void init()
     {
         //Platform.startup(() -> {});
         try{
-            Api.start();
+            api=Api.getInstance();
         }
         catch (Exception e)
         {
             fail();
         }
         try{
-            ImagesNations.initialize(Api.countries());
+            ImagesNations.initialize(api.countries());
         }
         catch (IllegalParameters e)
         {
@@ -39,7 +40,7 @@ class GraphicResultTest {
     {
         try
         {
-            GraphicResult gr=new GraphicResult(Api.totalNodes().get(0));
+            GraphicResult gr=new GraphicResult(api.totalNodes().get(0));
             assertEquals(gr.toString(),"SERVICE: TrustSign-Sig-01 (key no. 1) Country: AT Type of Service: QCertESig State: withdrawn Provider: A-Trust Gesellschaft für Sicherheitssysteme im elektronischen Datenverkehr GmbH");
         }
         catch (IllegalParameters e)
@@ -77,13 +78,13 @@ class GraphicResultTest {
     @Test
     void notNull() throws IOException,IllegalParameters
     {
-        GraphicResult gr=new GraphicResult(Api.totalNodes().get(0));
+        GraphicResult gr=new GraphicResult(api.totalNodes().get(0));
         assertNotNull(gr);
     }
     @Test
     void paneTest() throws IOException,IllegalParameters
     {
-        GraphicResult gr=new GraphicResult(Api.totalNodes().get(0));
+        GraphicResult gr=new GraphicResult(api.totalNodes().get(0));
         assertNotNull(gr.pane());
     }
     @AfterAll

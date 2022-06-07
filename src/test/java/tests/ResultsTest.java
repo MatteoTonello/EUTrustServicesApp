@@ -10,19 +10,20 @@ import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ResultsTest {
+    static Api api;
     @BeforeAll
     static void init()
     {
         //Platform.startup(() -> {});
         try{
-            Api.start();
+            api=Api.getInstance();
         }
         catch (Exception e)
         {
             fail();
         }
         try{
-            ImagesNations.initialize(Api.countries());
+            ImagesNations.initialize(api.countries());
         }
         catch (IllegalParameters e)
         {
@@ -39,7 +40,7 @@ class ResultsTest {
 
     @Test
     void initialize() throws Exception,IllegalParameters{
-        List<Node> final_results=Api.totalNodes();
+        List<Node> final_results=api.totalNodes();
         Results.initialize(final_results);
         assertEquals(final_results.size(),Results.resultsPane().size());
     }
