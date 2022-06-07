@@ -2,10 +2,8 @@ package code.eutrustservicesapplication;
 
 import javafx.scene.image.Image;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 /**
  * Classe che mette in relazione ogni nazione con l'immagine della relativa bandiera
 */
@@ -22,7 +20,7 @@ public class ImagesNations {
     public static void initialize(List<String> countries) throws IllegalParameters{
         if(countries==null) throw new IllegalParameters();
         for (String country : countries) {
-            map.put(country, new Image(ImagesNations.class.getResource("Picture/" + country + ".png").toExternalForm()));
+            map.put(country, new Image(ImagesNations.class.getResource("items/".concat(country.toLowerCase().concat(".png"))).toExternalForm()));
         }
     }
 
