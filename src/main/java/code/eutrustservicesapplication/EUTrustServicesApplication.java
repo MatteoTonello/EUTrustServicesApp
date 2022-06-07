@@ -21,9 +21,9 @@ public class EUTrustServicesApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(EUTrustServicesApplication.class.getResource("MainScene.fxml")); //caricamento elementi schermata principale
         Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(getClass().getResource("sample/stile.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("items/stile.css").toExternalForm());
         stage.setTitle("EU Trust Services Dashboard");
-        stage.getIcons().add(new Image(getClass().getResource("Picture/icon.png").toExternalForm()));
+        stage.getIcons().add(new Image(getClass().getResource("items/icon.png").toExternalForm()));
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();

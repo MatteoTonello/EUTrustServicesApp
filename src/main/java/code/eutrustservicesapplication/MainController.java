@@ -30,15 +30,6 @@ public class MainController {
      */
     public MainController()
     {
-        list=new ListView<>();
-        search=new TextField();
-        error=new Label(); error_api=new Label(); description=new Label();
-        select_all=new Button();deselect_all=new Button(); list_of_states=new Button(); list_of_type=new Button(); research=new Button(); next=new Button();
-        scrollPane1=new ScrollPane(); scrollPane2=new ScrollPane();
-        itemsContainer=new TilePane();
-        menu=new Pane();
-        main_vbox=new VBox();
-        top_box=new HBox();
     }
 
     /**
