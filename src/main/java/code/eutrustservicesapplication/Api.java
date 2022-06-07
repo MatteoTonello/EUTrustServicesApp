@@ -35,13 +35,13 @@ public class Api {
         }
         return instance;
     }
-    private static final Vector<String> countries = new Vector<>();
-    private static final Vector<String> name_countries= new Vector<>();
-    private static final Vector<String> type_of_services = new Vector<>();
-    private static final Vector<String> services = new Vector<>();
-    private static final Vector<String> providers = new Vector<>();
-    private static final Vector<String> status = new Vector<>();
-    private static final Vector<Node> totalNodes = new Vector<>();
+    private final Vector<String> countries = new Vector<>();
+    private final Vector<String> name_countries= new Vector<>();
+    private final Vector<String> type_of_services = new Vector<>();
+    private final Vector<String> services = new Vector<>();
+    private final Vector<String> providers = new Vector<>();
+    private final Vector<String> status = new Vector<>();
+    private final Vector<Node> totalNodes = new Vector<>();
 
     /**
      * Metodo per avviare una connessione con l'API del sito, per importare i dati sul quale
