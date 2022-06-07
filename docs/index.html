@@ -540,23 +540,41 @@
 
       <section class="js-section">
         <h2 class="section__title" style="font-size: 33px;">Test</h2>
-        <h3 class="section__title">Unit Tests Results</h3>
-        <figure>
-          <a href="http://danielefrancescato.altervista.org/EUTrustServiceApplication/TestResults.html">
-          <img src="pictures/TestResult.jpg" width="20%" height="20%" title="Unit Tests Results"></a>
-          <figcaption>
-            <p>Clicca per vedere i risultati degli unit tests</p>
-          </figcaption>
-        </figure>
-        <p><br><br></p>
-        <h3 class="section__title">System Tests</h3>
-        <figure>
-          <a href="http://danielefrancescato.altervista.org/EUTrustServiceApplication/System_test.pdf">
-          <img src="pictures/SystemTest.png" width="20%" height="20%" title="System Tests"></a>
-          <figcaption>
-            <p>Clicca per vedere i System Test</p>
-          </figcaption>
-        </figure>
+
+        <div id="contenitore">
+          <div class="contenuto">
+          <h3 class="section__title">Unit Tests Results</h3>
+          <figure>
+            <a href="http://danielefrancescato.altervista.org/EUTrustServiceApplication/TestResults.html" target="_blank">
+            <img src="pictures/TestResult.jpg" width="20%" height="20%" title="Unit Tests Results"></a>
+            <figcaption>
+              <p>Clicca per vedere i risultati degli unit tests</p>
+            </figcaption>
+          </figure>
+          <div class="contenuto">
+          <p><br><br></p>
+          <h3 class="section__title">System Tests</h3>
+          <figure>
+            <a href="http://danielefrancescato.altervista.org/EUTrustServiceApplication/System_test.pdf" target="_blank">
+            <img src="pictures/SystemTest.png" width="20%" height="20%" title="System Tests"></a>
+            <figcaption>
+              <p>Clicca per vedere i System Test</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <style>
+        #contenitore{
+
+        };
+        .contenuto{
+          width: 48%;
+          display: inline-block;
+          margin: 2%
+        }
+      </style>
+
         <hr />
       </section>
     </article>
