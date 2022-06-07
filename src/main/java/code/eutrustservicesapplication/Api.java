@@ -10,19 +10,30 @@ import java.util.Vector;
 import org.json.*;
 /**
  * Classe che prende, attraverso la chiamata all'API del sito, i dati necessari e
- * definisce i metodi per filtrare quelli selezionati dall'utente
+ * definisce i metodi per filtrare quelli selezionati dall'utente.
+ * E' possibile inizializzare un solo oggetto
  */
 public class Api {
-    private Api(){}
-    private static Api istance;
+
+    private Api(){}   //costruttore vuoto
+    private static Api instance;
+
+    /**
+     * Metodo che restituisce un oggetto Api se già esistente, altrimenti lo crea avviando una connessione con l'API del sito,
+     * per importare i dati sul quale poi il programma effettua un filtraggio mediante ricerca e
+     * selezione/deselezione
+     * @return Oggetto Api che ha fatto la chiamata all'API
+     * @throws Exception Viene lanciata se il programma non riesce a effettuare una connessione con
+     * l'API e, di conseguenza, a importare i dati necessari
+     */
     public static Api getInstance() throws Exception
     {
-        if(istance==null)
+        if(instance == null)
         {
-            istance=new Api();
-            istance.start();
+            instance = new Api();
+            instance.start();
         }
-        return istance;
+        return instance;
     }
     private static final Vector<String> countries = new Vector<>();
     private static final Vector<String> name_countries= new Vector<>();
@@ -36,7 +47,7 @@ public class Api {
      * Metodo per avviare una connessione con l'API del sito, per importare i dati sul quale
      * poi il programma effettua un filtraggio mediante ricerca e selezione/deselezione
      *
-     * @throws Exception viene lanciata se il programma non riesce a effettuare una connessione con
+     * @throws Exception Viene lanciata se il programma non riesce a effettuare una connessione con
      * l'API e, di conseguenza, a importare i dati necessari
      */
     private void start() throws Exception {
@@ -97,32 +108,32 @@ public class Api {
 
     /**
      * Restituisce le sigle delle nazioni
-     * @return le sigle delle nazioni in una lista non modificabile
+     * @return Le sigle delle nazioni in una lista non modificabile
      */
     public List<String> countries() { return Collections.unmodifiableList(countries);}
     /**
      * Restituisce i nomi delle nazioni
-     * @return i nomi delle nazioni in una lista non modificabile
+     * @return I nomi delle nazioni in una lista non modificabile
      */
     public List<String> name_countries() { return Collections.unmodifiableList(name_countries);}
     /**
      * Restituisce i tipi di servizi
-     * @return i tipi di servizi in una lista non modificabile
+     * @return I tipi di servizi in una lista non modificabile
      */
     public List<String> type_of_services() { return Collections.unmodifiableList(type_of_services);}
     /**
      * Restituisce i nomi dei provider
-     * @return i nomi dei provider in una lista non modificabile
+     * @return I nomi dei provider in una lista non modificabile
      */
     public List<String> providers() { return Collections.unmodifiableList(providers);}
     /**
      * Restituisce gli stati dei servizi
-     * @return gli stati dei servizi in una lista non modificabile
+     * @return Gli stati dei servizi in una lista non modificabile
      */
     public List<String> status() { return Collections.unmodifiableList(status);}
     /**
      * Restituisce tutte le associazioni nazione-provider-servizio-tipo di servizio-stato servizio
-     * @return tutte le associazioni nazione-provider-servizio-tipo di servizio-stato servizio in una lista non modificabile
+     * @return Tutte le associazioni nazione-provider-servizio-tipo di servizio-stato servizio in una lista non modificabile
      */
 
     public List<Node> totalNodes() { return Collections.unmodifiableList(totalNodes);}

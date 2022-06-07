@@ -140,6 +140,7 @@ public class MainController {
 
     /**
      * Selezione di tutti gli elementi con il relativo bottone
+     * @throws Exception Possibili eccezioni lanciate da GraphicNation.total_selection()
      */
     public void selectAll() throws Exception
     {
