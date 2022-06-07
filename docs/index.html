@@ -109,16 +109,16 @@
         <p>
           <u><i>Design Pattern</i></u><br>
           Abbiamo modellato il codice utilizzando i seguenti Design Pattern<br>
-          <i>GoF Patter</i>i>
+          <i>GoF Pattern</i>
           <ul>
-            <li><u>Singleton:</u>Abbiamo utilizzato questo design pattern per la classe Api.
+            <li><u>Singleton:</u> Abbiamo utilizzato questo design pattern per la classe Api.
               Infatti una peculiarità della nostra applicazione è quella di eseguire una sola richiesta
               alla libreria, una scelta che ci ha permesso di rendere più veloce e performante il
               programma. Inoltre ad assicurare una maggiore sicurezza, dal momento che ne rende
               possibile l’utilizzo anche nel caso in cui la connessione internet dell’utente venisse
               a mancare nei momenti successivi all’unica creazione dell’istanza di API.
             </li>
-            <li><u>State:</u>Abbiamo deciso di adottare questo design pattern nella creazione della
+            <li><u>State:</u> Abbiamo deciso di adottare questo design pattern nella creazione della
               classe Graphic Nation, ovvero la classe che definisce la struttura grafica di ogni nazione.
               Questa può assumere due stati: selezionata o deselezionata e, il controllo di questo stato,
               è determinato semplicemente nella classe stessa, grazie all’uso di una variabile booleana.
@@ -128,9 +128,10 @@
               diversi, riferiti alla ricerca(ricerca per nazione, per provider/tipo servizio/stato
               servizio, risultato).
             </li>
-        <i>Grasp Pattern</i>i>
+        </ul>
+        <i>Grasp Pattern</i>
         <ul>
-          <li><u>Controller:</u>La classe MainController è un Controller, ossia un oggetto che è
+          <li><u>Controller:</u> La classe MainController è un Controller, ossia un oggetto che è
             responsabile della comunicazione tra interfacce e sistema, per mettere in relazione GUI
             e l'applicazione. Infatti la suddetta classe è incaricata di recepire gli input forniti
             dall'interfaccia grafica sviluppata sui file FXML ed elaborare i risultati delegando i
@@ -142,7 +143,7 @@
             LabelType e GraphicResult vengono create unicamente attraverso le rispettive classi
             Creator.
           </li>
-          </ul>
+        </ul>
         </p>
 
         <p><br></p>
