@@ -71,12 +71,12 @@
           <u><i>Come viene effettuata la ricerca</i> <br></u>
           L’elemento all’interno del quale effettuare la ricerca è un vettore di oggetti,
           da noi chiamati “nodi”, che contiene tutti i possibili servizi con le relative
-          caratteristiche (i relativi nazione, provider, tipo di servizio e stato).
+          caratteristiche (nazione, provider, tipo di servizio e stato).
           La ricerca viene effettuata tramite 4 metodi (ognuno per ogni elemento legato al servizio), eseguiti
           sequenzialmente.
-          Dopo ogni metodo il vettore di nodi contiene solo i servizi che effettivamente hanno le caratteristiche
-          richieste come parametro,
-          arrivando quindi ad una situazione finale in cui contiene solo i servizi effettivamente richiesti.
+          Dopo ogni metodo il vettore di nodi contiene solo gli elementi che effettivamente hanno le caratteristiche
+          richieste come parametro, arrivando quindi ad una situazione finale in cui contiene 
+          solo i servizi cercati.
         </p>
         <p>Per fare ciò abbiamo importato le seguenti librerie:</p>
 
@@ -115,15 +115,15 @@
 
         <p>
           <u><i>Parte Grafica</i></u><br>
-          Successivamente abbiamo iniziato a definire la parte grafica, definita grazie
-          alla libreria esterna JavaFX, e al supporto di SceneBuilder, un software che
+          Successivamente abbiamo iniziato a definire la parte grafica grazie
+          alla libreria esterna <code>JavaFX</code> e al supporto di SceneBuilder, un software che
           facilita la creazione di applicazioni GUI tramite un’ interfaccia, restituendo
           un file in formato FXML da inserire all’interno del progetto.
         </p>
         <p>
           Grazie ad esso abbiamo definito l’ossatura grafica, definendo poi
           il comportamento dei vari componenti grafici attraverso le classi
-          e i metodi delle libreria JavaFX. Abbiamo definito due tipologie di
+          e i metodi delle libreria <code>JavaFX</code>. Abbiamo definito due tipologie di
           grafica diversa: una per le nazioni (che possono essere associate
           facilmente all’imagine di una bandiera, rendendo la ricerca più facile
           e intuitiva) e quello delle altre caratteristiche del servizio, quindi
@@ -132,7 +132,7 @@
           elenco con checkbox).
         </p>
         <p>
-          Come ultima cosa, abbiamo sfruttato la funzione di JavaFX che permette di
+          Come ultima cosa, abbiamo sfruttato la funzione di <code>JavaFX</code> che permette di
           ridefinire la grafica del software utilizzando degli script in linguaggio
           CSS. Questo è servito per creare un’interfaccia che rendesse più gradevole
           e fruibile l’utilizzo dell’applicazione all’utente finale.
@@ -214,13 +214,16 @@
         <div id="caption"></div>
         </div>
         <p><br></p>
-        <img src="pictures/InteractionsDiagram.svg" alt="Interaction Diagram" title="Interaction Diagram" height="60%" width="70%" style="">
+        <img src="pictures/InteractionsDiagram.svg" alt="Interaction Diagram" title="Interaction Diagram" height="60%" width="70%" 
+        style="display:block; margin-left:auto; margin-right:auto">
         <hr />
       </section>
 
 
 
       <p>
+        <br>
+        <br>
         <br>
         <br>
       </p>
@@ -534,29 +537,41 @@
       <p>
         <br>
         <br>
+        <br>
+        <br>
       </p>
 
 
 
       <section class="js-section">
         <h2 class="section__title" style="font-size: 33px;">Test</h2>
-        <h3 class="section__title">Unit Tests Results</h3>
-        <figure>
-          <a href="http://danielefrancescato.altervista.org/EUTrustServiceApplication/TestResults.html">
-          <img src="pictures/TestResult.jpg" width="20%" height="20%" title="Unit Tests Results"></a>
-          <figcaption>
-            <p>Clicca per vedere i risultati degli unit tests</p>
-          </figcaption>
-        </figure>
-        <p><br><br></p>
-        <h3 class="section__title">System Tests</h3>
-        <figure>
-          <a href="http://danielefrancescato.altervista.org/EUTrustServiceApplication/System_test.pdf">
-          <img src="pictures/SystemTest.png" width="20%" height="20%" title="System Tests"></a>
-          <figcaption>
-            <p>Clicca per vedere i System Test</p>
-          </figcaption>
-        </figure>
+
+        <div id="contenitore">
+          <div class="contenuto">
+          <h3 class="section__title" style="text-align: center;">Unit Tests Results</h3>
+          <figure>
+            <a href="http://danielefrancescato.altervista.org/EUTrustServiceApplication/TestResults.html" target="_blank">
+            <img src="pictures/TestResult.jpg" width="20%" height="20%" title="Unit Tests Results" 
+              style="display:block; margin-left:auto; margin-right:auto" ></a>
+            <figcaption>
+              <p style="text-align: center;">Clicca per vedere i risultati degli unit tests</p>
+            </figcaption>
+          </figure>
+          <div>
+          <p><br><br></p>
+          <h3 class="section__title" style="text-align: center;">System Tests</h3>
+          <figure>
+            <a href="http://danielefrancescato.altervista.org/EUTrustServiceApplication/System_test.pdf" target="_blank">
+            <img src="pictures/SystemTest.png" width="20%" height="20%" title="System Tests"
+            style="display:block; margin-left:auto; margin-right:auto" ></a>
+            <figcaption>
+              <p style="text-align: center;">Clicca per vedere i System Test</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+
         <hr />
       </section>
     </article>
