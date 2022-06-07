@@ -10,6 +10,7 @@ import java.util.Map;
  * Classe che mette in relazione ogni nazione con l'immagine della relativa bandiera
 */
 public class ImagesNations {
+    private ImagesNations(){}
     //mappa delle associazioni nazione-immagine, con chiave la stringa nazione
     private static final Map<String, Image> map=new HashMap<>();
     /**

@@ -13,6 +13,7 @@ import org.json.*;
  * definisce i metodi per filtrare quelli selezionati dall'utente
  */
 public class Api {
+    private Api(){}
     private static final Vector<String> countries = new Vector<>();
     private static final Vector<String> name_countries= new Vector<>();
     private static final Vector<String> type_of_services = new Vector<>();
