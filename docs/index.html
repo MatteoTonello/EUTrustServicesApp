@@ -163,8 +163,14 @@
 
       <section class="js-section">
         <h1 class="section__title" style="font-size: 33px;">Domain Model</h1>
+        <p>
+          L’applicazione riceve i dati dall’ EU-Trust Service API. L’utente può scegliere se 
+          visualizzare la lista delle nazioni, la lista dei tipi di servizio oppure eseguire 
+          una ricerca. In caso eseguisse una ricerca, dopo aver selezionato i parametri desiderati
+           l’applicazione restituisce come risultato un elenco di servizi con i relativi attributi.
+        </p>
         <!--IMMAGINE USE CASES-->
-        <img src="/pictures/DomainModel.png" alt="Design model" title="Design model" width="80%" height="80%">
+        <img src="/pictures/DomainModel.png" alt="Domain model" title="Domainn model" width="80%" height="80%">
         <hr />
       </section>
 
@@ -185,6 +191,22 @@
 
       <section class="js-section">
         <h1 class="section__title" style="font-size: 33px;">Design Model</h1>
+        <p>L’applicazione inizia la sua esecuzione dalla classe <code>EUTrustServicesApplication</code>. <br>
+          La <b>parte grafica</b> è affidata alla classe <code> MainController</code>, che ottiene i dati 
+          tramite la classe <code>Api</code>, la quale si occupa anche di definire i metodi per filtrare 
+          i dati selezionati dall’utente e di salvare i servizi in entità della classe Node.<br>
+          Per <b>eseguire la ricerca</b> si utilizzano i metodi definiti nella classe <code>ResearchMethods</code>
+          mentre, in caso di mancata selezione di un parametro da parte dell’utente, viene lanciata l’eccezione
+          <code>NoElementException</code>.
+          La classe <code>ImagesNations</code> fornisce una mappa che associa nome e bandiera delle nazioni alle classi 
+          <code>GraphicResult</code> e <code>GraphicNation</code>. La prima fornisce l’oggetto grafico per rappresentare 
+          il singolo risultato alla classe <code>Results</code>, la quale si occupa della creazione della grafica per 
+          rappresentare i risultati finali. La seconda invece fornisce l’oggetto grafico per rappresentare la singola nazione 
+          alla classe <code>Nations</code>, la quale si occupa di creare la grafica per rappresentare le nazioni e gestisce 
+          la loro selezione. La classe <code>LabelType</code> fornisce l’oggetto grafico per rappresentare il singolo tipo di 
+          servizio alla classe <code>TypeofService</code>, la quale si occupa della gestione del caricamento degli elementi
+          grafici degli oggetti di tipo servizio.<br>
+          Infine, in caso alcuni parametri passati a una funzione siano errati viene lanciata l’eccezione <code>IllegalParameters</code>.</p>
         <!-- Image Zoom HTML -->   
         <img id="myImg" src="pictures/DesignModel.png" alt="Design Model" title="zoom picture" width="100%" height="100%">
         <div id="myModal" class="modal">
